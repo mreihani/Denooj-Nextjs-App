@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+.print_holder {
+    border: solid 2px #000000;
+    margin: 15px;
+}
+
+.print_holder .print_header {
+    padding: 8px 0;
+    text-align: center;
+    background: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.print_holder .print_top {
+    padding: 0 15px 15px 15px;
+    font-size: 10pt;
+}
+
+.print_holder .print_table .head {
+    padding: 8px 0;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: 10pt;
+    border-top: solid 2px #000000;
+}
+
+.print_holder .print_table .table_header {
+    display: block;
+    background: #000000;
+    color: #ffffff;
+}
+
+.print_holder .print_table .table_header span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 10pt;
+    font-weight: bold;
+    border-left: solid 1px #ffffff;
+    padding: 8px 5px;
+    box-sizing: border-box;
+}
+
+.print_holder .print_table .table_header span:last-child {
+    border-left: none;
+}
+
+.print_holder .print_table .table_order_image {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 2px;
+    filter: grayscale(100%);
+}
+
+.print_holder .print_table .table_row {
+    display: block;
+    border-bottom: 1px solid #000000;
+}
+
+.print_holder .print_table .table_row:last-child {
+    border-bottom: none;
+}
+
+.print_holder .print_table .table_row div {
+    padding: 8px 5px;
+}
+
+.print_holder .print_table .table_row .t_title {
+    display: none;
+    font-size: 16px;
+    width: 100px;
+    border: none;
+    white-space: initial;
+    text-overflow: initial;
+    overflow: initial;
+}
+
+.print_holder .print_table .table_row .t_text {
+    display: inline-block;
+    width: 100%;
+}
+
+.print_holder .print_table .table_row div {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 780px) {
+    .print_holder .print_table .table_header {
+        display: none;
+    }
+
+    .print_holder .print_table .table_row {
+        border-top: solid 1px #000000;
+        border-bottom: none;
+    }
+
+    .print_holder .print_table .table_row div {
+        display: block;
+        width: 100% !important;
+        border-bottom: dashed 1px #000000;
+        border-left: none;
+        padding-bottom: 2px;
+        margin-bottom: 2px;
+    }
+
+    .print_holder .print_table .table_row div:last-child {
+        border: none;
+    }
+
+    .print_holder .print_table .table_row .t_title {
+        display: inline-block;
+    }
+
+    .print_holder .print_table .table_row .t_text {
+        width: calc(100% - 105px);
+    }
+
+    .print_holder .w50 {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(50% - 5px);
+    }
+}

@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+.animation_set {
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.animation_start {
+    animation-play-state: running !important;
+}
+
+.animation_delay_1 {
+    animation-delay: 0.5s;
+}
+
+.animation_delay_2 {
+    animation-delay: 1.0s;
+}
+
+.animation_delay_3 {
+    animation-delay: 1.5s;
+}
+
+.animation_delay_4 {
+    animation-delay: 2.0s;
+}
+
+.animation_delay_5 {
+    animation-delay: 2.5s;
+}
+
+.animation_delay_6 {
+    animation-delay: 3.0s;
+}
+
+.animation_delay_7 {
+    animation-delay: 3.5s;
+}
+
+.animation_delay_8 {
+    animation-delay: 4.0s;
+}
+
+.animation_fade_in {
+    opacity: 0.0;
+    animation-name: anim_fade_in;
+    animation-play-state: paused;
+}
+
+@keyframes anim_fade_in {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.animation_fade_in_up {
+    position: relative;
+    opacity: 0.0;
+    top: 100px;
+    animation-name: anim_fade_in_up;
+    animation-play-state: paused;
+}
+
+@keyframes anim_fade_in_up {
+    0% {
+        opacity: 0.0;
+        top: 100px;
+    }
+    100% {
+        opacity: 1.0;
+        top: 0;
+    }
+}
+
+.animation_fade_in_right {
+    position: relative;
+    opacity: 0.0;
+    right: 100px;
+    animation-name: anim_fade_in_right;
+    animation-play-state: paused;
+}
+
+@keyframes anim_fade_in_right {
+    0% {
+        opacity: 0.0;
+        right: 100px;
+    }
+    100% {
+        opacity: 1.0;
+        right: 0;
+    }
+}
+
+.animation_fade_zoom {
+    transform: scale(2.0, 2.0);
+    opacity: 0.0;
+    animation-name: anim_fade_zoom;
+    animation-play-state: paused;
+}
+
+@keyframes anim_fade_zoom {
+    0% {
+        transform: scale(2.0, 2.0);
+        opacity: 0.0;
+    }
+    100% {
+        transform: scale(1.0, 1.0);
+        opacity: 1.0;
+    }
+}
+
+.animation_fade_zoom_infinite {
+    transform: scale(1.2, 1.2);
+    animation-name: anim_fade_zoom_infinite;
+    animation-play-state: paused;
+    animation-iteration-count: infinite !important;
+    animation-duration: 1.8s !important;
+}
+
+@keyframes anim_fade_zoom_infinite {
+    0% {
+        transform: scale(1.2, 1.2);
+    }
+    25% {
+        transform: scale(1.0, 1.0);
+    }
+    75% {
+        transform: scale(1.0, 1.0);
+    }
+    100% {
+        transform: scale(1.2, 1.2);
+    }
+}
