@@ -24,7 +24,7 @@ const Login: NextPageWithLayout = () =>  {
 
     return (
         <>
-            <div className="flex flex-1 flex-col justify-center px-6 lg:px-8 h-screen" style={{marginTop: "-100px;"}}>
+            <div className="flex flex-1 flex-col justify-center px-6 lg:px-8 h-screen" style={{marginTop:"-100px;"}}>
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img 
                         className="mx-auto w-auto"
