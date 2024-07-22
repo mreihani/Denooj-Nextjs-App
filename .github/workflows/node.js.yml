@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Git Pull
-      run: denooj git pull
+      run: git pull
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
