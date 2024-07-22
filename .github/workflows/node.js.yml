@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    container:
+      image: ubuntu
+      options: --user denooj
     strategy:
       matrix:
         node-version: [20.x]
