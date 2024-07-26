@@ -77,7 +77,7 @@ const MainContent = () => {
                         <UserProfileForm 
                             fullName={fullName} 
                             gender={gender} 
-                            phone={phone} 
+                            phone={"0" + phone} 
                             email={email} 
                             setOpenDisplayInput={setOpenDisplayInput} 
                             displaySmsInput={displaySmsInput} 

@@ -49,7 +49,7 @@ const InnerUserProfileForm = (props: FormikProps<UserProfileFormInterface>) => {
 
                         <label className="mt-2" htmlFor="phone">تلفن</label>
                         <div className="input-group d-felx flex-nowrap" dir="ltr">
-                            <span className="input-group-text rounded-0 rounded-start" id="basic-addon11">0</span>
+                            {/* <span className="input-group-text rounded-0 rounded-start" id="basic-addon11">0</span> */}
                             <Field type="number" id="phone" name="phone" />
                         </div>
                         <div>
