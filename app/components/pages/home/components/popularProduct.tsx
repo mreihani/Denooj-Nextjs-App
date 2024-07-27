@@ -79,7 +79,7 @@ const PopularProduct = () => {
                                     <div className="product_img">
                                         <Link href={`/product/${product.productSlug}`}>
                                             <img 
-                                                src={domainUrl +'products/images/'+ product.images.image_275x454}
+                                                src={domainUrl +'admin/products/images/'+ product.images.image_275x454}
                                                 alt="rice3"
                                                 width={120}
                                                 height={120}

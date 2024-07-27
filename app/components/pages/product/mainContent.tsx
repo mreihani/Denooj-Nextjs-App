@@ -17,7 +17,7 @@ const MainContent = () => {
                         <a href="#">
                             {product && (
                                 <img 
-                                    src={`${domainUrl}products/images/${product.images.image_275x454}`}
+                                    src={`${domainUrl}admin/products/images/${product.images.image_275x454}`}
                                     alt="rice3"
                                     width={200}
                                     height={350}

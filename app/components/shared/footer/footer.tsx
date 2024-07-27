@@ -28,7 +28,7 @@ const Footer = () => {
                         <div className="footer_menu">
                             <span className="footer_title">تماس با ما</span>
                             <a href="#" className="menu text-decoration-none">
-                                آدرس: بابل شهرک ثباتی بین خرم ۱و ۳ برنج دنوج
+                                آدرس: بابل شهرک ثباتی بین خرم ۱ و ۳ برنج دنوج
                             </a>
                             <br/> 
                             <a href="#" className="menu text-decoration-none">تلفن: 091122222222</a><br/> 

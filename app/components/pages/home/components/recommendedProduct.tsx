@@ -26,7 +26,7 @@ const RecommendedProduct = () => {
                         {recommendedProduct && (
                             <Link href={`/product/${recommendedProduct.productSlug}`}>
                                 <img 
-                                    src={`${domainUrl}products/images/${recommendedProduct.images.image_275x454}`}
+                                    src={`${domainUrl}admin/products/images/${recommendedProduct.images.image_275x454}`}
                                     alt="rice3"
                                     width={200}
                                     height={350}

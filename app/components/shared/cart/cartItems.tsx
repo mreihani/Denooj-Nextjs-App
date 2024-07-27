@@ -36,7 +36,7 @@ const CartItems = () => {
                 <div className="cart_row d-flex">
                     <Link href={`/product/${value[1]['item'].productSlug}`} className="d-flex align-items-center">
                         <img 
-                            src={domainUrl +'products/images/'+ value[1]['item'].images.image_275x454}
+                            src={domainUrl +'admin/products/images/'+ value[1]['item'].images.image_275x454}
                             alt="product"
                             style={{height: "50px"}}
                         />
