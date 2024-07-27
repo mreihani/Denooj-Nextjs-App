@@ -19,6 +19,9 @@ export interface Product {
     shortDesc: string,
     longDesc: string,
     productWeight: string,
+    metaTitle: string,
+    metaDescription: string,
+    metaKeywords: string
 }
 
 export interface Images {

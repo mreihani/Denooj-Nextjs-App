@@ -13,6 +13,8 @@ import UserCheckoutLayout from "@/app/components/layouts/checkout/userCheckoutLa
 import Link from "next/link";
 import useAuth from "@/app/hooks/auth/useAuth";
 import UserCheckoutForm from "@/app/forms/pages/checkout/userCheckoutForm";
+import { Helmet } from "react-helmet";
+import { metaConfig } from "@/app/utils/metaConfig";
 
 const MainContent = () => {
 
@@ -78,6 +80,14 @@ const MainContent = () => {
 const Checkout :NextPageWithLayout = (props) => {
     return (
         <>
+            <Helmet>
+                <title>
+                    تسویه حساب
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <Header />
             <SideMenu />
             <MainContent />

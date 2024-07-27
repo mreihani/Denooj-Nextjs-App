@@ -10,6 +10,8 @@ import { mutate } from "swr";
 import { clearAllCartApi } from "@/app/hooks/cart/clearAllCart";
 import useCart from "@/app/hooks/cart/useCart";
 import Link from "next/link";
+import { Helmet } from "react-helmet";
+import { metaConfig } from "@/app/utils/metaConfig";
 
 const MainContent = () => {
 
@@ -22,7 +24,7 @@ const MainContent = () => {
     let cartItems = cart?.cart;
     
     return (
-        <>
+        <>    
             <div className="container animation_set animation_fade_in animation_start" style={{margin: "55px auto;"}}>
                 <div className="float_header mb-5" style={{fontWeight: "600;", fontSize: "14pt;"}}>
                     <div className="row">
@@ -312,6 +314,14 @@ const MainContent = () => {
 const Cart = () => {
     return (
         <>
+            <Helmet>
+                <title>
+                    سبد خرید
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <Header />
             <SideMenu />
             <MainContent />

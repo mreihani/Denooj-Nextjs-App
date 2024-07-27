@@ -15,6 +15,8 @@ import useOrder from "@/app/hooks/order/useOrder";
 import AllOrdersCount from "@/app/components/pages/dashboard/topCards/allOrdersCount";
 import PreparationOrdersCount from "@/app/components/pages/dashboard/topCards/preparationOrdersCount";
 import OrdersList from "@/app/components/pages/dashboard/ordersListSection/ordersList";
+import { Helmet } from "react-helmet";
+import { metaConfig } from "@/app/utils/metaConfig";
 
 const MainContent = () => {
 
@@ -97,6 +99,14 @@ const Dashboard :NextPageWithLayout = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    پیشخوان
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <Header />
             <SideMenu />
             <MainContent />

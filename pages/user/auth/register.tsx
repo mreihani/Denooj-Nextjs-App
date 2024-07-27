@@ -11,6 +11,8 @@ import { setTemporaryUserPhone } from '@/redux/features/auth/temporaryUserPhone'
 import { NextPageWithLayout } from '@/pages/_app';
 import GuestLayout from "@/app/components/layouts/dashboard/guestLayout";
 import { useRouter } from "next/router";
+import { Helmet } from "react-helmet";
+import { metaConfig } from "@/app/utils/metaConfig";
 
 const Register: NextPageWithLayout = () =>  {
     
@@ -27,6 +29,14 @@ const Register: NextPageWithLayout = () =>  {
     
     return (
         <>
+            <Helmet>
+                <title>
+                    عضویت
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">

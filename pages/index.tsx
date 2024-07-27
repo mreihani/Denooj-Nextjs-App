@@ -7,6 +7,10 @@ import FooterInstagram from "@/app/components/shared/footer/footerInstagram";
 import Header from "@/app/components/shared/header/header";
 import SideMenu from "@/app/components/shared/side-menu/sideMenu";
 import { useAppSelector } from "@/redux/store";
+import { Metadata } from "next";
+import { Helmet } from 'react-helmet';
+import { metaConfig } from '@/app/utils/metaConfig';
+
 
 const HomePage = () => {
 
@@ -16,6 +20,14 @@ const HomePage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    {metaConfig.metaTitle}
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <Header />
             <SideMenu />
             <MainContent />

@@ -1,6 +1,8 @@
 import { addItemToCart } from '@/app/hooks/cart/useCart';
 import { useProduct } from '@/app/hooks/product/useProduct';
 import dynamic from 'next/dynamic';
+import { Helmet } from 'react-helmet';
+import { metaConfig } from '@/app/utils/metaConfig';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -11,6 +13,17 @@ const MainContent = () => {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    {product && product.metaTitle 
+                        ? product.metaTitle
+                        : metaConfig.metaTitle
+                    }
+                </title>
+                <meta name="description" content={product && product.metaDescription ? product.metaDescription : metaConfig.metaDescription} />
+                <meta name="keywords" content={product && product.metaKeywords ? product.metaKeywords : metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <div className="product_holder">
                 <div className="sug_holder">
                     <div className="product_img animation_set animation_fade_in_up animation_delay_1 animation_start">

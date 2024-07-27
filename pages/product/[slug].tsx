@@ -8,6 +8,7 @@ import 'react-quill/dist/quill.bubble.css';
 import { useAppSelector } from "@/redux/store";
 import FloatingMiniCart from "@/app/components/shared/footer/floatingMiniCart";
 import MainContent from "@/app/components/pages/product/mainContent";
+import { Helmet } from "react-helmet";
 
 const ProductSingle = () => {
 

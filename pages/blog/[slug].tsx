@@ -4,7 +4,9 @@ import FooterCopyRight from "@/app/components/shared/footer/footerCopyRight";
 import FooterInstagram from "@/app/components/shared/footer/footerInstagram";
 import Header from "@/app/components/shared/header/header";
 import SideMenu from "@/app/components/shared/side-menu/sideMenu";
+import { metaConfig } from "@/app/utils/metaConfig";
 import { useRouter } from "next/router";
+import { Helmet } from "react-helmet";
 
 const MainContent = () => {
     return (
@@ -32,6 +34,14 @@ const BlogSingle = () => {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    مقاله
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <Header />
             <SideMenu />
             <MainContent />

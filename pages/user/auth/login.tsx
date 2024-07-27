@@ -8,6 +8,8 @@ import LoginFormVerify from '@/app/forms/auth/login/loginFormVerify';
 import { NextPageWithLayout } from '@/pages/_app';
 import GuestLayout from "@/app/components/layouts/dashboard/guestLayout";
 import { useRouter } from "next/router";
+import { Helmet } from "react-helmet";
+import { metaConfig } from "@/app/utils/metaConfig";
 
 const Login: NextPageWithLayout = () =>  {
 
@@ -24,6 +26,14 @@ const Login: NextPageWithLayout = () =>  {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    ورود
+                </title>
+                <meta name="description" content={metaConfig.metaDescription} />
+                <meta name="keywords" content={metaConfig.metaKeywords} />
+                <link rel="icon" type="image/x-icon" href="/assets/img/fave.png" />
+            </Helmet>
             <div className="flex flex-1 flex-col justify-center px-6 lg:px-8 h-screen" style={{marginTop:"-100px;"}}>
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img 
