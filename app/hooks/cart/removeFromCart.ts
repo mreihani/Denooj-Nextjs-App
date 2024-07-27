@@ -1,7 +1,7 @@
 export const removeFromCartApi = async(id :string, quantity :number) => {
     const fetchCsrfToken = async () => {
         const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-        const url = "api/cart";
+        const url = "admin/api/cart";
 
         const response = await fetch(`${domainUrl}${url}`, {
             method: 'GET',
@@ -20,7 +20,7 @@ export const removeFromCartApi = async(id :string, quantity :number) => {
     const removeSingleProductFromCart :any = async (values: any) => {
         const token = await fetchCsrfToken();
         const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-        const url = "api/cart/remove";
+        const url = "admin/api/cart/remove";
 
         const response = await fetch(`${domainUrl}${url}`, {
             method: 'POST',

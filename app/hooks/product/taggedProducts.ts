@@ -2,7 +2,7 @@
 export const getTaggedProduct = async(type: string) => {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = `api/products/tagged?type=${type}`;
+    const url = `admin/api/products/tagged?type=${type}`;
     
     let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

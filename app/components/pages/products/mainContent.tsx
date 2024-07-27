@@ -62,7 +62,7 @@ const MainContent = () => {
     async function getProductList(page :number): Promise<PaginatedProduct> {
 
         const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-        const url = `api/products?page=${page}`;
+        const url = `admin/api/products?page=${page}`;
 
         let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
             method: 'GET',

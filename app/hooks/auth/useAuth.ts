@@ -4,7 +4,7 @@ import useSWR from "swr";
 async function fetchUserSessionToken() {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = "api/auth/token";
+    const url = "admin/api/auth/token";
 
     let fetchAuthResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

@@ -8,7 +8,7 @@ import { addToCartApi } from '@/app/hooks/cart/addToCartApi';
 async function fetchCartData() {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = "api/cart";
+    const url = "admin/api/cart";
 
     let fetchCartResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

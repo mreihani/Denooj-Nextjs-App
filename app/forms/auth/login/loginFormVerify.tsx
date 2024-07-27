@@ -32,7 +32,7 @@ const LoginFormVerify = withFormik<LoginFormProps, LoginFormVerifyValuesInterfac
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/login";
+            const url = "admin/api/auth/login";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -55,7 +55,7 @@ const LoginFormVerify = withFormik<LoginFormProps, LoginFormVerifyValuesInterfac
             let token = await fetchCsrfToken();
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/login/verify";
+            const url = "admin/api/auth/login/verify";
             
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',

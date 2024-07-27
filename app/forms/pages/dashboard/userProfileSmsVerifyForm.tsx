@@ -31,7 +31,7 @@ const UserProfileVerifySmsForm = withFormik<ProfileVerifySmsFormProps, UserProfi
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/profile";
+            const url = "admin/api/profile";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -54,7 +54,7 @@ const UserProfileVerifySmsForm = withFormik<ProfileVerifySmsFormProps, UserProfi
             let token = await fetchCsrfToken();
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/profile/phone-verify";
+            const url = "admin/api/profile/phone-verify";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',

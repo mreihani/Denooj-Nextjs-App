@@ -28,7 +28,7 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/payment";
+            const url = "admin/api/payment";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -51,7 +51,7 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
             let token = await fetchCsrfToken();
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/payment";
+            const url = "admin/api/payment";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',

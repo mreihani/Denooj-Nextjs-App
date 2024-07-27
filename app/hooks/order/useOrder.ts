@@ -11,7 +11,7 @@ interface OrderParams {
 async function fetchOrderData(params: OrderParams) {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = `api/orders?status=${params.status}`;
+    const url = `admin/api/orders?status=${params.status}`;
 
     let fetchCartResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

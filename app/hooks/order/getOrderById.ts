@@ -2,7 +2,7 @@
 export const getUserOrderById = async(id: string) => {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = `api/order/${id}`;
+    const url = `admin/api/order/${id}`;
 
     let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

@@ -48,7 +48,7 @@ const UserProfileForm = withFormik<ProfileFormProps, UserProfileFormInterface>({
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/profile";
+            const url = "admin/api/profile";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -71,7 +71,7 @@ const UserProfileForm = withFormik<ProfileFormProps, UserProfileFormInterface>({
             let token = await fetchCsrfToken();
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/profile";
+            const url = "admin/api/profile";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'PUT',

@@ -42,7 +42,7 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>(
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/register";
+            const url = "admin/api/auth/register";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -65,7 +65,7 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>(
             let token = await fetchCsrfToken();
             
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/register";
+            const url = "admin/api/auth/register";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',

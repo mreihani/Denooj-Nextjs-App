@@ -27,7 +27,7 @@ const AuthButton = () => {
 
     const logoutHandler = async () => {
         const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-        const url = "api/auth/logout";
+        const url = "admin/api/auth/logout";
 
         let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
             method: 'GET',

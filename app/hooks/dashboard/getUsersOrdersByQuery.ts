@@ -2,7 +2,7 @@
 export const getUsersOrdersByQuery = async(status: any, page :number) => {
 
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-    const url = `api/orders?status=${status}&page=${page}`;
+    const url = `admin/api/orders?status=${status}&page=${page}`;
 
     let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
         method: 'GET',

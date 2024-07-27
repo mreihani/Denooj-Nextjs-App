@@ -14,7 +14,7 @@ export const useProduct = () => {
         const fetchSingleProduct = async (): Promise<ProductResponse> => {
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
             const { slug } = router.query;
-            const url = `api/product/${slug}`;
+            const url = `admin/api/product/${slug}`;
 
             const response = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',

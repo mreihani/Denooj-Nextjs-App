@@ -33,7 +33,7 @@ const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/login";
+            const url = "admin/api/auth/login";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -56,7 +56,7 @@ const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
             let token = await fetchCsrfToken();
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "api/auth/login";
+            const url = "admin/api/auth/login";
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',
