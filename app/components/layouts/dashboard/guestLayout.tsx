@@ -12,7 +12,7 @@ const GuestLayout = ({children} : Props) => {
   
     if(user?.status == 'success') {
         router.push('/dashboard');
-        // return <></>;
+        return <></>;
     }
 
     return (

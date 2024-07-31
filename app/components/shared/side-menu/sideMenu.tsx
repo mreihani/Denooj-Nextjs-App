@@ -80,7 +80,6 @@ const SideMenu = () => {
     const handleCloseSidebar = () => {
         dispatch(setSidebarStatus(false));
     }
-
     
     const { user } = useAuth();
 

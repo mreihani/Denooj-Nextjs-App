@@ -30,7 +30,7 @@ const UserDashboardLayout = ({children} : Props) => {
     if(error || user.status == 'failed') {
         // show error
         router.push('/user/auth/login');
-        // return <></>;
+        return <></>;
     }
     
     return (
