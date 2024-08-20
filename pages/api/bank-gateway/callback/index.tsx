@@ -9,28 +9,29 @@ const corsOptions = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+
+    async function fetchCsrfToken() {
+
+        const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
+        const url = "admin/api/payment/callback";
+
+        let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            mode: 'cors'
+        });
+        let parsedResponse = await fetchPostResponse.json();
+
+        // return back token
+        return parsedResponse.csrfToken;
+    }
+
     cors(corsOptions)(req, res, async() => {
 
-        async function fetchCsrfToken() {
-
-            const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "admin/api/payment/callback";
-
-            let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                mode: 'cors'
-            });
-            let parsedResponse = await fetchPostResponse.json();
-
-            // return back token
-            return parsedResponse.csrfToken;
-        }
-       
         async function sendCbQuery() {
 
             let token = await fetchCsrfToken();
