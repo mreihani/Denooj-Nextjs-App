@@ -36,7 +36,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         let response = await sendCbQuery();
 
-        return res.json(response);
+        if (response === 0) {
+            res.writeHead(302, { Location: '/dashboard' });
+            res.end();
+            return;
+        } else {
+            res.writeHead(302, { Location: '/checkout' });
+            res.end();
+            return;
+        }
+
+
+        //return res.json(response);
         // const router = useRouter();
 
         // if(response.status === 0) {
@@ -47,5 +58,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         //     return;
         // }
 
+       
     });
 };
