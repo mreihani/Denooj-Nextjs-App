@@ -9,30 +9,25 @@ const corsOptions = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    cors(corsOptions)(req, res, () => {
+    cors(corsOptions)(req, res, async() => {
        
-        // const sendToken = async () => {
-        //     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-        //     const url = "admin/api/payment/callback";
-        //     const values = req;
+        const sendToken = async () => {
+            const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
+            const url = "admin/api/payment/callback";
+            const values = req.body;
 
-        //     const response = await fetch(`${domainUrl}${url}`, {
-        //         method: 'GET',
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //         },
-        //         credentials: 'include',
-        //         mode: 'cors',
-        //         body: JSON.stringify(values),
-        //     });
+            const response = await fetch(`${domainUrl}${url}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                mode: 'cors',
+                body: JSON.stringify(values),
+            });
+        };
 
-        //     const data = await response.json();
-        //     return data.csrfToken;
-        // };
-
-        // await sendToken();
-
-        return res.json('hello');
+        await sendToken();
     });
 };
