@@ -11,8 +11,6 @@ const corsOptions = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-    const router = useRouter();
-
     cors(corsOptions)(req, res, async() => {
 
         async function sendCbQuery() {
@@ -38,15 +36,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         let response = await sendCbQuery();
 
-        //return res.json(response);
+        return res.json(response);
+        // const router = useRouter();
 
-        if(response.status === 0) {
-            router.push('/dashboard');
-            return;
-        } else {
-            router.push('/checkout');
-            return;
-        }
+        // if(response.status === 0) {
+        //     router.push('/dashboard');
+        //     return;
+        // } else {
+        //     router.push('/checkout');
+        //     return;
+        // }
 
     });
 };
