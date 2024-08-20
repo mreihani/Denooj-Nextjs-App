@@ -71,7 +71,7 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
 
         // send form data along with csrf token
         let response = await sendUserInfo(values);
-       
+       console.log(response);
         // user has asked to chenge the phone number
         if(response.SalePaymentRequestResult.Status === 0 && response.SalePaymentRequestResult.Token > 0) {
             const token = response.SalePaymentRequestResult.Token;
