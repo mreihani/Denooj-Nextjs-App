@@ -11,12 +11,13 @@ const corsOptions = {
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     cors(corsOptions)(req, res, async() => {
        
-        const sendToken = async() => {
+        async function sendCbQuery() {
+
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
             const url = "admin/api/payment/callback";
             const values = req.body;
-            
-            const response = await fetch(`${domainUrl}${url}`, {
+
+            let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -26,16 +27,18 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 mode: 'cors',
                 body: JSON.stringify(values),
             });
+            let parsedResponse = await fetchPostResponse.json();
 
-            return await response.json();
-        };
+            return parsedResponse.csrfToken;
+        }
 
-        const response = await sendToken();
+        let response = await sendCbQuery();
 
         return res.json(response);
 
         // if(response.status === -138) {
 
         // }
+
     });
 };
