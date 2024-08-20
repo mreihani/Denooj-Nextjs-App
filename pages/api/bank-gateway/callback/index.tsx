@@ -11,7 +11,7 @@ const corsOptions = {
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     cors(corsOptions)(req, res, async() => {
        
-        const sendToken = async () => {
+        const sendToken = async() => {
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
             const url = "admin/api/payment/callback";
             const values = req.body;
@@ -27,14 +27,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 body: JSON.stringify(values),
             });
 
-            const parsedResponse = await response.json();
+            return await response.json();
         };
 
-        const parsedResponse = await sendToken();
+        const response = await sendToken();
 
-        return res.json(parsedResponse);
+        return res.json(response);
 
-        // if(parsedResponse.status === -138) {
+        // if(response.status === -138) {
 
         // }
     });
