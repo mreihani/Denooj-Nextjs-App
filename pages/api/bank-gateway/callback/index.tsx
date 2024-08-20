@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             const values = req.body;
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = `admin/api/payment/callback?Token=${values.Token}&OrderId=${values.OrderId}&status=${values.status}&STraceNo=${values.STraceNo}`;
+            const url = `admin/api/payment/callback?Token=${values.Token}&OrderId=${values.OrderId}&status=${values.status}&STraceNo=${values.STraceNo}&Amount=${values.Amount}`;
            
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
