@@ -27,13 +27,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 body: JSON.stringify(values),
             });
 
-            return response;
+            const parsedResponse = await response.json();
         };
 
-        const response = await sendToken();
+        const parsedResponse = await sendToken();
 
-        if(response.status === -138) {
+        return res.json(parsedResponse);
 
-        }
+        // if(parsedResponse.status === -138) {
+
+        // }
     });
 };
