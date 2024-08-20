@@ -36,14 +36,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         let response = await sendCbQuery();
 
-        if (response === 1) {
-            res.writeHead(302, { Location: '/dashboard' });
-            res.end();
-            return;
-        } else {
-            res.writeHead(302, { Location: '/checkout' });
-            res.end();
-            return;
-        }
+
+        res.writeHead(302, { Location: '/dashboard' });
+        res.end();
+        return;
+
+        // if (response === 1) {
+        //     res.writeHead(302, { Location: '/dashboard' });
+        //     res.end();
+        //     return;
+        // } else {
+        //     res.writeHead(302, { Location: '/checkout' });
+        //     res.end();
+        //     return;
+        // }
     });
 };
