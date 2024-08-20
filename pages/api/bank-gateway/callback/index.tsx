@@ -15,7 +15,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
             const url = "admin/api/payment/callback";
             const values = req.body;
-
+            return res.json(values);
             const response = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
                 headers: {
