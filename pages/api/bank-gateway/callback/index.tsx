@@ -45,19 +45,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.end();
             return;
         }
-
-
-        //return res.json(response);
-        // const router = useRouter();
-
-        // if(response.status === 0) {
-        //     router.push('/dashboard');
-        //     return;
-        // } else {
-        //     router.push('/checkout');
-        //     return;
-        // }
-
-       
     });
 };
