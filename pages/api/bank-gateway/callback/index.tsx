@@ -14,18 +14,18 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         async function sendCbQuery() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const values = req.body;
-            const url = `admin/api/payment/callback?Token=${values.Token}&OrderId=${values.OrderId}&TerminalNo=${values.TerminalNo}&RRN=${values.RRN}&status=${values.status}&HashCardNumber=${values.HashCardNumber}&Amount=${values.Amount}&SwAmount=${values.SwAmount}&STraceNo=${values.STraceNo}&DiscountedProduct=${values.DiscountedProduct}`;
+            // const url = `admin/api/payment/callback?Token=${values.Token}&OrderId=${values.OrderId}&TerminalNo=${values.TerminalNo}&RRN=${values.RRN}&status=${values.status}&HashCardNumber=${values.HashCardNumber}&Amount=${values.Amount}&SwAmount=${values.SwAmount}&STraceNo=${values.STraceNo}&DiscountedProduct=${values.DiscountedProduct}`;
+            const url = 'admin/api/payment/callback';
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 credentials: 'include',
                 mode: 'cors',
-               
+                body: JSON.stringify(req.body),
             });
             let parsedResponse = await fetchPostResponse.json();
 
