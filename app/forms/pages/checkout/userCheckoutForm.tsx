@@ -71,10 +71,11 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
 
         // send form data along with csrf token
         let response = await sendUserInfo(values);
-        console.log(response);
+       
         // user has asked to chenge the phone number
-        if(response.status == 'success') {
-            
+        if(response.SalePaymentRequestResult.Status === 0 && response.SalePaymentRequestResult.Token > 0) {
+            const token = response.SalePaymentRequestResult.Token;
+            window.location.href = `https://pec.shaparak.ir/NewIPG/?token=${token}`;
         }
     }
 })(InnerUserCheckoutForm)
