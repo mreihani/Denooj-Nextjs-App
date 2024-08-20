@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 const cors = require('cors');
+import { useRouter } from 'next/router';
 
 const corsOptions = {
     origin: 'https://denooj.com',
@@ -35,11 +36,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         let response = await sendCbQuery();
 
-        return res.json(response);
+        //return res.json(response);
+        const router = useRouter();
 
-        // if(response.status === -138) {
-
-        // }
+        if(response.status === 0) {
+            router.push('/dashboard');
+        } else {
+            router.push('/checkout');
+        }
 
     });
 };
