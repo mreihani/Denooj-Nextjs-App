@@ -22,5 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return data.csrfToken;
     };
 
-    await sendToken();
+    //await sendToken();
+
+    return res.json('hello');
 }
