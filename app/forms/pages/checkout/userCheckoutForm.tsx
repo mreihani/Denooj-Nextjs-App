@@ -73,7 +73,7 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
         let response = await sendUserInfo(values);
       
         // user has asked to chenge the phone number
-        if(response[0].SalePaymentRequestResult.Status === 0 && response[0].SalePaymentRequestResult.Token > 0) {
+        if(response.SalePaymentRequestResult.Status === 0 && response.SalePaymentRequestResult.Token > 0) {
             const token = response.SalePaymentRequestResult.Token;
             window.location.href = `https://pec.shaparak.ir/NewIPG/?token=${token}`;
         }
