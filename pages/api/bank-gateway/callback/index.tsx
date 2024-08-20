@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         let response = await sendCbQuery();
 
-        if (response === 0) {
+        if (response.status === 'success') {
             res.writeHead(302, { Location: '/dashboard' });
             res.end();
             return;
