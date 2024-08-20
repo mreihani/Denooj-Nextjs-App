@@ -8,8 +8,47 @@ const corsOptions = {
     optionsSuccessStatus: 200,
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export const callbackCsrf = async (req: NextApiRequest, res: NextApiResponse) => {
     
+    const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
+    const url = "admin/api/payment/callback";
+
+    let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        mode: 'cors'
+    });
+    let parsedResponse = await fetchPostResponse.json();
+
+    // return back token
+    return parsedResponse.csrfToken;
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    
+
+    const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
+    const url = "admin/api/payment/callback";
+
+    let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        mode: 'cors'
+    });
+    let parsedResponse = await fetchPostResponse.json();
+
+    // return back token
+    let token = parsedResponse.csrfToken;
+
+
     cors(corsOptions)(req, res, async() => {
 
         // async function fetchCsrfToken() {
@@ -35,30 +74,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         async function sendCbQuery() {
 
             //let token = await fetchCsrfToken();
-            const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
+            //const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
             // const url = `admin/api/payment/callback?Token=${values.Token}&OrderId=${values.OrderId}&TerminalNo=${values.TerminalNo}&RRN=${values.RRN}&status=${values.status}&HashCardNumber=${values.HashCardNumber}&Amount=${values.Amount}&SwAmount=${values.SwAmount}&STraceNo=${values.STraceNo}&DiscountedProduct=${values.DiscountedProduct}`;
-            const url = 'admin/api/payment/callback';
-
-
-
-
-
-
-
-
-
-            let fetcCSRFResponse = await fetch(`${domainUrl}${url}`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                mode: 'cors'
-            });
-            let parsedCsrf = await fetcCSRFResponse.json();
-            let token = parsedCsrf.csrfToken;
-
+            //const url = 'admin/api/payment/callback';
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'POST',
