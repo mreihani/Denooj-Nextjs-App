@@ -14,8 +14,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         async function sendCbQuery() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
-            const url = "admin/api/payment/callback";
             const values = req.body;
+            const url = `admin/api/payment/callback?param1=${JSON.stringify(values)}`;
 
             let fetchPostResponse = await fetch(`${domainUrl}${url}`, {
                 method: 'GET',
@@ -25,7 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 },
                 credentials: 'include',
                 mode: 'cors',
-                body: JSON.stringify(values),
+               
             });
             let parsedResponse = await fetchPostResponse.json();
 
