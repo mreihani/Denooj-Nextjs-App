@@ -35,8 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     let response = await sendCbQuery();
 
-    //return res.json(response);
-
+   
     if(response.status === 0) {
         router.push('/dashboard');
         return;
