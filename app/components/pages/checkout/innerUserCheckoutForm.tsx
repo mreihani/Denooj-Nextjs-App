@@ -72,7 +72,7 @@ const InnerUserCheckoutForm = (props: FormikProps<UserCheckoutFormInterface>) =>
                             type="submit" 
                             onClick={() => changeBtnStatus()} 
                             className={`${loading ? 'text-decoration-none d-flex align-items-center btn btn-dark rounded-pill mt-3 border-0' : 'btn_primary mt-3 mb-5 border-0'}`} 
-                            disabled={loading} // Add disabled attribute based on the loading state
+                            // disabled={loading} 
                         >
                             {
                                 loading ? 
