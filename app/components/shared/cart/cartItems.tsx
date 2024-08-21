@@ -80,7 +80,11 @@ const CartItems = () => {
                     </div>
                     <div className="cart_control d-flex align-items-center justify-content-center flex-wrap">
                         <i onClick={() => handleAddItemToCart(value[1]['item']._id)} className="fal fa-circle-plus green"></i>
-                        <i onClick={() => handleRemoveItemToCart(value[1]['item']._id)} className="fal fa-circle-minus green"></i>
+                        {   value[1]['qty'] > 1 ?
+                            <i onClick={() => handleRemoveItemToCart(value[1]['item']._id)} className="fal fa-circle-minus green"></i>
+                            :
+                            ''
+                        }
                         <i onClick={() => handleClearItemToCart(value[1]['item']._id)} className="fal fa-times-circle red"></i>
                     </div>
                 </div>
@@ -91,21 +95,21 @@ const CartItems = () => {
     const handleAddItemToCart = async(id :string) => {
         setLoading(true); // Set loading to true when adding item to cart
         await addToCartApi(id, 1);
-        mutate('cart_me'); // Re-fetch cart data
+        await mutate('cart_me'); // Re-fetch cart data
         setLoading(false); // Set loading back to false after adding item
     }
 
     const handleRemoveItemToCart = async(id :string) => {
         setLoading(true); // Set loading to true when adding item to cart
         await removeFromCartApi(id, 1);
-        mutate('cart_me'); // Re-fetch cart data
+        let {cart} = await mutate('cart_me'); // Re-fetch cart data
         setLoading(false); // Set loading back to false after adding item
     }
 
     const handleClearItemToCart = async(id :string) => {
         setLoading(true); // Set loading to true when adding item to cart
         await clearFromCartApi(id);
-        mutate('cart_me'); // Re-fetch cart data
+        await mutate('cart_me'); // Re-fetch cart data
         setLoading(false); // Set loading back to false after adding item
     }
 
