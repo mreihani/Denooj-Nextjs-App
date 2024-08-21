@@ -25,7 +25,7 @@ const MainContent = () => {
     
     return (
         <>    
-            <div className="container animation_set animation_fade_in animation_start" style={{margin: "55px auto;"}}>
+            <div className="container animation_set animation_fade_in animation_start mt-5">
                 <div className="float_header mb-5" style={{fontWeight: "600;", fontSize: "14pt;"}}>
                     <div className="row">
                         <div className="col-md-6">

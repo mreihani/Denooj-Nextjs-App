@@ -35,7 +35,7 @@ const CartItems = () => {
     } else {
         cartItemHtml = cartItems.map((value :any, key :any) => (
             <div className="float_content border-bottom" key={key}>
-                <div className="cart_row d-flex">
+                <div className="cart_row d-flex justify-content-center align-items-stretch">
                     <Link href={`/product/${value[1]['item'].productSlug}`} className="d-flex align-items-center">
                         <img 
                             src={domainUrl +'admin/products/images/'+ value[1]['item'].images.image_275x454}
@@ -60,7 +60,7 @@ const CartItems = () => {
                                 </div>
                             </div>
                             :
-                            <div>
+                            <div className="d-flex">
                                 <span className="cart_count">{value[1]['qty']}</span>
                                 <span className="cart_cost">{value[1]['item'].productPrice} تومان</span>
                             </div>
@@ -78,7 +78,7 @@ const CartItems = () => {
                             تومان
                         </div>
                     </div>
-                    <div className="cart_control d-flex align-items-center justify-content-center">
+                    <div className="cart_control d-flex align-items-center justify-content-center flex-wrap">
                         <i onClick={() => handleAddItemToCart(value[1]['item']._id)} className="fal fa-circle-plus green"></i>
                         <i onClick={() => handleRemoveItemToCart(value[1]['item']._id)} className="fal fa-circle-minus green"></i>
                         <i onClick={() => handleClearItemToCart(value[1]['item']._id)} className="fal fa-times-circle red"></i>
