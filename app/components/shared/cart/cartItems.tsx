@@ -43,7 +43,7 @@ const CartItems = () => {
                             style={{height: "50px"}}
                         />
                     </Link>
-                    <div className="cart_detail">
+                    <div className="cart_detail d-flex align-items-center justify-content-between">
                         <span className="cart_title">
                             <Link href={`/product/${value[1]['item'].productSlug}`} className="text-decoration-none">
                                 {value[1]['item'].productTitle}
