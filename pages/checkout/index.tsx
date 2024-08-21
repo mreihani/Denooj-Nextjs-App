@@ -16,11 +16,12 @@ import UserCheckoutForm from "@/app/forms/pages/checkout/userCheckoutForm";
 import { Helmet } from "react-helmet";
 import { metaConfig } from "@/app/utils/metaConfig";
 
+
 const MainContent = () => {
 
     const handleClearAllCart = async() => {
         await clearAllCartApi();
-        mutate('cart_me'); // Re-fetch cart data
+        await mutate('cart_me'); // Re-fetch cart data
     } 
     const { cart } = useCart();
     let cartItems = cart?.cart;

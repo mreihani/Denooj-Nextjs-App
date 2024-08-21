@@ -45,7 +45,7 @@ export const addItemToCart = () => {
         // add item to cart through api
         await addToCartApi(id, 1);
 
-        mutate('cart_me'); // Re-fetch cart data
+        await mutate('cart_me'); // Re-fetch cart data
     };
 
     return { handleOpenMiniCart };
