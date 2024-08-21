@@ -4,8 +4,16 @@ import Input from '@/app/components/shared/form/input';
 import { LoginFormVerifyValuesInterface } from '@/app/contracts/auth';
 import { Form, FormikProps } from 'formik';
 import React from 'react';
+import { useEffect, useState } from "react";
 
 const innerLoginFormVerify = (props: FormikProps<LoginFormVerifyValuesInterface>) => {
+
+    const [loading, setLoading] = useState(false); // State to manage loading
+
+    const changeBtnStatus = () => {
+        setLoading(true);
+    }
+
     return (
         <Form className="space-y-6">
             <div>

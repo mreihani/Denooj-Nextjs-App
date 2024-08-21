@@ -60,7 +60,7 @@ const MainContent = () => {
                 </div>
                 <CartItems />
 
-                <div className="col-md-6 d-flex justify-content-start">
+                <div className="col-md-6 d-flex justify-content-start mb-3">
                     {
                         loading ?
                         <>
@@ -79,7 +79,8 @@ const MainContent = () => {
                     }
                 </div>
             </div>
-            <div className="product_scroll">
+
+            {/* <div className="product_scroll">
                 <div className="container">
                     <div className="scroll_header animation_set animation_fade_in animation_delay_1 animation_start">
                         <i className="fas fa-wheat scroll_header_icon"></i>
@@ -323,7 +324,8 @@ const MainContent = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
         </>
     )
 }
