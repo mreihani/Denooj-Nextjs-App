@@ -11,6 +11,8 @@ const CartItems = () => {
     const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
     let cartItemHtml;
 
+    const [loading, setLoading] = useState(false); // State to manage loading
+
     const { cart } = useCart();
     let cartItems = cart?.cart;
     
@@ -85,20 +87,26 @@ const CartItems = () => {
             </div>
         ));
     }
- 
+
     const handleAddItemToCart = async(id :string) => {
+        setLoading(true); // Set loading to true when adding item to cart
         await addToCartApi(id, 1);
         mutate('cart_me'); // Re-fetch cart data
+        setLoading(false); // Set loading back to false after adding item
     }
 
     const handleRemoveItemToCart = async(id :string) => {
+        setLoading(true); // Set loading to true when adding item to cart
         await removeFromCartApi(id, 1);
         mutate('cart_me'); // Re-fetch cart data
+        setLoading(false); // Set loading back to false after adding item
     }
 
     const handleClearItemToCart = async(id :string) => {
+        setLoading(true); // Set loading to true when adding item to cart
         await clearFromCartApi(id);
         mutate('cart_me'); // Re-fetch cart data
+        setLoading(false); // Set loading back to false after adding item
     }
 
     // calculate total price
@@ -110,8 +118,16 @@ const CartItems = () => {
         <>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12">
-                        {cartItemHtml}     
+                    <div className="col-md-12 text-center">
+                        {loading ? (
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden">
+                                    در حال بارگذاری...
+                                </span>
+                            </div>
+                        ) : (
+                            cartItemHtml
+                        )}
                     </div>
                 </div>
                 <div className="row mt-3">
