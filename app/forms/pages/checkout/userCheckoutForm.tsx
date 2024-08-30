@@ -1,30 +1,32 @@
 import * as yup from "yup";
-import {
-    withFormik,
-} from 'formik';
+import { withFormik } from 'formik';
 import { UserCheckoutFormInterface } from "@/app/contracts/checkout";
 import InnerUserCheckoutForm from "@/app/components/pages/checkout/innerUserCheckoutForm";
 
+
 interface CheckoutFormProps {
-    fullName? : string,
-    gender? : string,
-    email? : string,
-    phone? : string,
+    address? : string,
+    postalCode? : string,
+    loading?: boolean,
+    setLoading?: any,
 }
 
 const LoginFormValidationSchema = yup.object().shape({
-    phone: yup.number().notRequired(),
+    address: yup.number().notRequired(),
+    postalCode: yup.number().notRequired(),
 })
 
 const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface>({
     mapPropsToValues: props => ({
-        fullName: props.fullName ?? '',
-        gender: props.gender ?? '',
-        email: props.email ?? '',
-        phone: props.phone ?? '',
+        address: props.address ?? '',
+        postalCode: props.postalCode ?? '',
+        loading: props.loading ?? false,
+        setLoading: props.setLoading ?? '',
     }),
-    validationSchema: LoginFormValidationSchema,
     handleSubmit: async(values, { props, setFieldError }) => {
+
+        const { setLoading } = props;
+       
         async function fetchCsrfToken() {
 
             const domainUrl = process.env.NEXT_PUBLIC_DOMAIN_URI;
@@ -71,11 +73,17 @@ const UserCheckoutForm = withFormik<CheckoutFormProps, UserCheckoutFormInterface
 
         // send form data along with csrf token
         let response = await sendUserInfo(values);
-      
+        
         // user has asked to chenge the phone number
-        if(response.SalePaymentRequestResult.Status === 0 && response.SalePaymentRequestResult.Token > 0) {
+        if(response?.SalePaymentRequestResult?.Status && response.SalePaymentRequestResult.Status === 0 && response.SalePaymentRequestResult.Token > 0) {
+
+            setLoading(true);
+
             const token = response.SalePaymentRequestResult.Token;
             window.location.href = `https://pec.shaparak.ir/NewIPG/?token=${token}`;
+        } else {
+            // set errors
+            Object.entries(response).forEach(([key,value]) => setFieldError((value as { path: string }).path, (value as { msg: string }).msg));
         }
     }
 })(InnerUserCheckoutForm)

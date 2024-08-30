@@ -15,9 +15,11 @@ import useAuth from "@/app/hooks/auth/useAuth";
 import UserCheckoutForm from "@/app/forms/pages/checkout/userCheckoutForm";
 import { Helmet } from "react-helmet";
 import { metaConfig } from "@/app/utils/metaConfig";
-
+import { useState } from "react";
 
 const MainContent = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const handleClearAllCart = async() => {
         await clearAllCartApi();
@@ -27,11 +29,10 @@ const MainContent = () => {
     let cartItems = cart?.cart;
 
     let { user } = useAuth();
-    let fullName = user?.user?.firstname + " " + user?.user?.lastname;
-    let gender = user?.user?.gender;
-    let phone = user?.user?.phone;
-    let email = user?.user?.emailAddress;
-    
+   
+    let address = user?.user?.address;
+    let postalCode = user?.user?.postalCode;
+
     return (
         <>
             <div className="container animation_set animation_fade_in animation_start mt-5" style={{margin: "55px auto"}}>
@@ -66,10 +67,10 @@ const MainContent = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <UserCheckoutForm 
-                            fullName={fullName} 
-                            gender={gender} 
-                            phone={phone} 
-                            email={email} 
+                            address={address} 
+                            postalCode={postalCode} 
+                            loading={loading} 
+                            setLoading={setLoading} 
                         />
                     </div>
                 </div>

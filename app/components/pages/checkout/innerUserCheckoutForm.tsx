@@ -1,50 +1,29 @@
-import Input from '@/app/components/shared/form/input';
-import CustomLoginInput from '@/app/components/shared/form/customLoginInput';
 import { UserCheckoutFormInterface } from '@/app/contracts/checkout/index';
 import { ErrorMessage, Form, FormikProps, Field } from 'formik';
-import Link from 'next/link';
-import { useEffect, useState } from "react";
 
 const InnerUserCheckoutForm = (props: FormikProps<UserCheckoutFormInterface>) => {
 
-    const { displaySmsInput } :any = props;
-    const { displaySuccessMessage } :any = props;
+    const { loading } :any = props;
 
-    const [loading, setLoading] = useState(false); // State to manage loading
-
-    const changeBtnStatus = () => {
-        setLoading(true);
-    }
-    
     return (
         <Form>
             <> 
                 <div className="row mt-5">
-                    <div className="col-md-6">
-                        <label htmlFor="fullName">نام و نام خانوادگی</label>
-                        <Field disabled={true} type="text" id="fullName" name="fullName" className="bg-light" />
-
-                        <label className="mt-2" htmlFor="gender">جنسیت</label>
-                        <Field disabled={true} as="select" id="gender" name="gender" className="bg-light" >
-                            <option value="">انتخاب کنید</option>
-                            <option value="male">مرد</option>
-                            <option value="female">زن</option>
-                        </Field>
-                        <ErrorMessage name={'gender'} className={`text-danger small`} component="div" />
+                    <div className="col-md-12">
+                        <label htmlFor="address">
+                            آدرس *
+                        </label>
+                        <Field type="text" id="address" name="address" className="" />
+                        <ErrorMessage name={'address'} className={`text-danger small`} component="div" />
                     </div>
-                    <div className="col-md-6">
-                        <label htmlFor="email">ایمیل</label>
-                        <Field disabled={true} type="email" id="email" name="email" className="bg-light" />
-                        <ErrorMessage name={'email'} className={`text-danger small`} component="div" />
-
-                        <label className="mt-2" htmlFor="phone">تلفن</label>
-                        <div className="input-group d-felx flex-nowrap" dir="ltr">
-                            <span className="input-group-text rounded-0 rounded-start" id="basic-addon11">0</span>
-                            <Field disabled={true} type="number" id="phone" name="phone" className="bg-light" />
-                        </div>
-                        <div>
-                            <ErrorMessage name={'phone'} className={`text-danger small`} component="div" />
-                        </div>
+                </div>
+                <div className="row mt-3">
+                    <div className="col-md-12">
+                        <label htmlFor="postalCode">
+                            کد پستی *
+                        </label>
+                        <Field type="text" id="postalCode" name="postalCode" className="" />
+                        <ErrorMessage name={'postalCode'} className={`text-danger small`} component="div" />
                     </div>
                 </div>
                 
@@ -52,7 +31,6 @@ const InnerUserCheckoutForm = (props: FormikProps<UserCheckoutFormInterface>) =>
                     <>
                         <button 
                             type="submit" 
-                            onClick={() => changeBtnStatus()} 
                             className={`${loading ? 'text-decoration-none d-flex align-items-center btn btn-dark rounded-pill mt-3 border-0' : 'btn_primary mt-3 mb-5 border-0'}`} 
                         >
                             {

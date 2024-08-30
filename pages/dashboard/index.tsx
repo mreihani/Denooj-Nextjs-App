@@ -10,8 +10,6 @@ import UserProfileForm from "@/app/forms/pages/dashboard/userProfileForm";
 import useAuth from "@/app/hooks/auth/useAuth";
 import { useEffect, useState } from "react";
 import UserProfileVerifySmsForm from "@/app/forms/pages/dashboard/userProfileSmsVerifyForm";
-import useSWR, {mutate} from "swr";
-import useOrder from "@/app/hooks/order/useOrder";
 import AllOrdersCount from "@/app/components/pages/dashboard/topCards/allOrdersCount";
 import PreparationOrdersCount from "@/app/components/pages/dashboard/topCards/preparationOrdersCount";
 import OrdersList from "@/app/components/pages/dashboard/ordersListSection/ordersList";
@@ -38,26 +36,8 @@ const MainContent = () => {
                     <span className="panel_title_right">داشبورد</span>
                 </div>
                 <div className="statistics">
-
                     <AllOrdersCount/>
                     <PreparationOrdersCount/>
-
-                    {/* <div className="statistics_item">
-                        <span className="icon"><i className="far fa-coins"></i></span>
-                        <div className="statics_detail">
-                            <span className="statistic_title">امتیازهای من</span>
-                            <span className="statistic_num">100</span>
-                            <span className="statistic_type">امتیاز</span>
-                        </div>
-                    </div> */}
-                    {/* <div className="statistics_item">
-                        <span className="icon"><i className="far fa-wallet"></i></span>
-                        <div className="statics_detail">
-                            <span className="statistic_title">موجودی کیف پول</span>
-                            <span className="statistic_num">10,000,000</span>
-                            <span className="statistic_type">تومان</span>
-                        </div>
-                    </div> */}
                 </div>
 
                 <OrdersList/>

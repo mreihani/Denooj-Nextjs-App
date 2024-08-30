@@ -1,6 +1,6 @@
 export interface UserCheckoutFormInterface {
-    fullName: string,
-    gender: string,
-    email: string,
-    phone: string,
+    address: string,
+    postalCode: string,
+    loading: boolean,
+    setLoading: any,
 }
